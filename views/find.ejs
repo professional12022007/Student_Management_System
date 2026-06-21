@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Segoe UI, Arial, sans-serif;
+    }
+
+    body {
+        min-height: 100vh;
+        background: linear-gradient(135deg, #0f172a, #1e293b, #4338ca);
+        padding: 40px 20px;
+    }
+
+    h1 {
+        text-align: center;
+        color: white;
+        margin-bottom: 35px;
+        font-size: 3rem;
+        letter-spacing: 1px;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: auto;
+    }
+
+    .card {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 25px;
+        color: white;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, .25);
+        transition: .3s ease;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, .35);
+    }
+
+    .card p {
+        margin: 14px 0;
+        font-size: 17px;
+    }
+
+    .card strong {
+        color: #93c5fd;
+        margin-right: 5px;
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 30px;
+        flex-wrap: wrap;
+    }
+
+    .back,
+    .home-btn {
+        text-decoration: none;
+        color: white;
+        padding: 14px 24px;
+        border-radius: 12px;
+        font-weight: 600;
+        transition: .3s;
+    }
+
+    .back {
+        background: linear-gradient(135deg, #2563eb, #3b82f6);
+    }
+
+    .back:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(37, 99, 235, .35);
+    }
+
+    .home-btn {
+        background: linear-gradient(135deg, #10b981, #059669);
+    }
+
+    .home-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(16, 185, 129, .35);
+    }
+
+    .not-found {
+        text-align: center;
+        color: white;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px;
+        font-size: 24px;
+        backdrop-filter: blur(15px);
+    }
+
+    @media(max-width:768px) {
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        .card {
+            padding: 20px;
+        }
+
+        .buttons {
+            flex-direction: column;
+        }
+
+        .back,
+        .home-btn {
+            text-align: center;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+    <h1>🔍 Search Results</h1>
+
+    <div class="container">
+
+        <% if(students.length===0){ %>
+
+            <div class="not-found">
+                ❌ No Student Found
+            </div>
+
+            <% } else { %>
+
+                <% students.forEach(student=> { %>
+
+                    <div class="card">
+
+                        <p>
+                            <strong>Name:</strong>
+                            <%= student.name %>
+                        </p>
+
+                        <p>
+                            <strong>Age:</strong>
+                            <%= student.age %>
+                        </p>
+
+                        <p>
+                            <strong>Course:</strong>
+                            <%= student.course %>
+                        </p>
+
+                        <p>
+                            <strong>Email:</strong>
+                            <%= student.email %>
+                        </p>
+
+                        <p>
+                            <strong>City:</strong>
+                            <%= student.city %>
+                        </p>
+
+                    </div>
+
+                    <% }) %>
+
+                        <% } %>
+
+                        <div style="text-align:center;font-size:60px;margin-bottom:15px;">
+                            👨‍🎓
+                        </div>
+                        <div class="buttons">
+                            <a href="/search" class="back">🔍 Search Again</a>
+                        
+                            <a href="/" class="home-btn">🏠 Home Page</a>
+                        </div>
+                        
+
+    </div>
+
+</body>
+
+</html>
